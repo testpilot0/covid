@@ -2,7 +2,7 @@
 
 This is an interim development repo for Predicting Peptide for Vaccine Candidate Solution. This paper provide an overview of proposed pipeline: https://github.com/testpilot0/covid/blob/master/Google%20AI%20Platform%20Pipelines_%20Predicting%20COVID%20Peptide%20Vaccine%20Candidates.pdf
 
-  Peptide_Prediction_BigQuery_Demo.ipynb - explore peptide data and run BQML to predict peptide bindings. Thi notebook is well documented.
+  Peptide_Prediction_BigQuery_Demo.ipynb - explore peptide data and run BQML to predict peptide bindings. This notebook is well documented.
 
 There are two others notebooks which will need some more documentations
 
