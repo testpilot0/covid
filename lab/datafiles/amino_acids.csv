@@ -1,0 +1,22 @@
+a_index,amino_acid,abbriviation,short_abrv,formula,polarity,hydropathy_index,molecular_weight,isoelectric_point
+1,Alanine,Ala,A,C3H7N1O2,Uncharged,0.62,89.09,6
+2,Arginine,Arg,R,C6H14N4O2,Positively Charged,-2.5,174.2,11.15
+3,Asparagine,Asn,N,C4H8N2O3,Non-Polarity,-0.78,132.12,5.41
+4,Aspartic acid,Asp,D,C4H7N1O4,Negatively Charged,-0.9,133.1,2.77
+5,Cysteine,Cys,C,C3H7N1O2S1,Non-Polarity,0.29,121.16,5.02
+6,Glutamine,Gln,Q,C5H10N2O3,Non-Polarity,-0.85,146.15,5.65
+7,Glutamic acid,Glu,E,C5H9N1O4,Negatively Charged,-0.74,147.13,3.22
+8,Glycine,Gly,G,C2H5N1O2,Uncharged,0.48,75.07,5.97
+9,Histidine,His,H,C6H9N3O2,Positively Charged,0.4,155.16,7.47
+10,Isoleucine,Ile,I,C6H13N1O2,Uncharged,1.4,131.17,5.94
+11,Leucine,Leu,L,C6H13N1O2,Uncharged,1.1,131.17,5.98
+12,Lysine,Lys,K,C6H14N2O2,Positively Charged,-1.5,146.19,9.59
+13,Methionine,Met,M,C5H11N1O2S1,Non-Polarity,0.64,149.21,5.74
+14,Phenylalanine,Phe,F,C9H11N1O2,Uncharged,1.2,165.19,5.48
+15,Proline,Pro,P,C5H9N1O2,Uncharged,0.12,115.13,6.3
+16,Serine,Ser,S,C3H7N1O3,Non-Polarity,-0.18,105.09,5.68
+17,Threonine,Thr,T,C4H9N1O3,Non-Polarity,-0.05,119.12,5.64
+18,Tryptophan,Trp,W,C11H12N2O2,Non-Polarity,0.81,204.23,5.89
+19,Tyrosine,Tyr,Y,C9H11N1O3,Non-Polarity,0.26,181.19,5.66
+20,Valine,Val,V,C5H11N1O2,Uncharged,1.1,117.15,5.96
+21,Any amino acid,Xaa,X,None,None,0,0,0
