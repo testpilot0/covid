@@ -15,8 +15,4 @@ It allow data scientist quickly plug and explore various models
 
 and run the entire pipeline with a single command. That allows data scientist run multiple computation experiments in parallel and explore various models for outcome prediction.
 
-Third pipile in initial stage of development: 
-
-  COVID_Mutated.ipynb
-It is a template to explore virus mutations.
 
