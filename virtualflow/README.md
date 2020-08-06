@@ -68,21 +68,23 @@ The REAL database of Enamine contains over 1.4 billion commercially available on
 
 ![REAL Library: REAL database of Enamine](images/image-04.png)
 
-* Set Molecular Weight: 250 - 300
-* Set Partition Coefficient: 2.3-3
-* Set Topological Polar Surface Area: 60-80
-* Set Hydrogen Bond Acceptors: 3-5
-* Set Hydrogen Bond Donors: 2-3
-* Set Rotatable Bonds: 0-10
+* Set Parameters
+  * Set Molecular Weight: 250 - 300
+  * Set Partition Coefficient: 2.3-3
+  * Set Topological Polar Surface Area: 60-80
+  * Set Hydrogen Bond Acceptors: 3-5
+  * Set Hydrogen Bond Donors: 2-3
+  * Set Rotatable Bonds: 0-10
 
 * Download method for tranches: “wget”
-* Click “download” → tranches.sh
+  * Click “download” → tranches.sh
 
 * Collection-length file
-* Click “download” → collections.txt
+  * Click “download” → collections.txt
 
 SSH into SLURM Login Node
 T![OD: Add screenshot.]()
+
 
 Upload files to SLURM Login Node
 * tranches.sh
