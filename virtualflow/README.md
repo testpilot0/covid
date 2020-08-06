@@ -12,7 +12,7 @@
 
 # Deploy Slurm Cluster
 
-* Search for SLURM in <a href="https://console.cloud.google.com/marketplace/" target="_blank">GCP Marketplace</a>: 
+* Search for SLURM in [GCP Marketplace](https://console.cloud.google.com/marketplace/)
 
 ![Search for SLURM](images/image-00.png)
 
@@ -40,9 +40,9 @@
 ![SSH into the SLURM Login Node](images/image-03.png)
 
 * Install VirtualFlow for Virtual Screening (VFVS)
-  * wget -O VFVS.tar.gz <a href="https://github.com/VirtualFlow/VFVS/archive/develop.tar.gz" target="_blank">https://github.com/VirtualFlow/VFVS/archive/develop.tar.gz</a>
+  * wget -O VFVS.tar.gz [https://github.com/VirtualFlow/VFVS/archive/develop.tar.gz](https://github.com/VirtualFlow/VFVS/archive/develop.tar.gz)
   * tar -xvf VFVS_GK.tar
-  * git clone <a href="https://github.com/VirtualFlow/VFTools" target="_blank">https://github.com/VirtualFlow/VFTools</a>
+  * git clone [https://github.com/VirtualFlow/VFTools](https://github.com/VirtualFlow/VFTools)
 
 ```
 [user_google_com@fluid-slurm-gcp-1-login-0 ~]$ ls -l
@@ -54,17 +54,17 @@ drwxrwxr-x. 6 user_google_com user_google_com      173 Apr 23 14:50 VFVS-develop
 
 # Setting Up the Workflow
 
-* VirtualFlow Virtual Screening <a href="https://docs.virtual-flow.org/tutorials/-LdE94b2AVfBFT72zK-v/tutorial-2-vfvs-scratch/introduction" target="_blank">tutorial<a/>
+* VirtualFlow Virtual Screening [tutorial](https://docs.virtual-flow.org/tutorials/-LdE94b2AVfBFT72zK-v/tutorial-2-vfvs-scratch/introduction)
 * The target structure in this tutorial is human glucokinase (GK)
  
 The files in this tutorial come with two pre-configured docking scenarios:
 
-1. <a href="https://academic.oup.com/bioinformatics/article/31/13/2214/195750" target="_blank">QuickVina 2</a> with exhaustiveness set to 8
-1. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155183" target="_blank">Smina Vinardo</a> with exhaustiveness set to 4
+1. [QuickVina 2](https://academic.oup.com/bioinformatics/article/31/13/2214/195750) with exhaustiveness set to 8
+1. [Smina Vinardo](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155183) with exhaustiveness set to 4
 
 The REAL database of Enamine contains over 1.4 billion commercially available on-demand molecules.
 
-* <a href="https://virtual-flow.org/real-library" target="_blank">https://virtual-flow.org/real-library</a>
+* [https://virtual-flow.org/real-library](https://virtual-flow.org/real-library)
 
 ![REAL Library: REAL database of Enamine](images/image-04.png)
 
