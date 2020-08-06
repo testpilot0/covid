@@ -9,6 +9,10 @@
 - [Workflow Settings](#workflow-settings)
 - [Docking Scenario Settings](#docking-scenario-settings)
 - [Prepare the Job File](#prepare-the-job-file)
+- [Prepare the Workflow and Output-Files Folders](#prepare-the-workflow-and-output-files-folders)
+- [Starting the Workflow](#starting-the-workflow)
+- [Watch the Workflow Run](#Watch-the-workflow-run)
+
 
 # Deploy Slurm Cluster
 
@@ -186,3 +190,9 @@ timelimit=7-00:00:00
 # Docking Scenario Settings
 
 # Prepare the Job File
+
+# Prepare the Workflow and Output-Files Folders
+
+# Starting the Workflow
+
+# Watch the Workflow Run
