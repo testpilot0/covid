@@ -4,7 +4,7 @@
 - [Install VirtualFlow](#install-virtualflow)
 - [Setting Up the Workflow](#setting-up-the-workflow)
 - [Preparing the Docking Input Files](#preparing-the-docking-input-files)
-- [Preparing the tools Folder](#preparing-the-tools-folder)
+- [Preparing the Tools Folder](#preparing-the-tools-folder)
 - [Using Entire Nodes](#using-entire-nodes)
 - [Workflow Settings](#workflow-settings)
 - [Docking Scenario Settings](#docking-scenario-settings)
@@ -110,7 +110,74 @@ Replace the file tools/templates/todo.all with the file collections.txt
 
 # Preparing the Docking Input Files
 
-# Preparing the tools Folder
+* Change to input-files directory
+
+```
+[user@machine ligand-library]$ cd ..
+[user@machine input-files]$ 
+
+```
+
+* Download docking input files
+
+```
+[user@machine input-files]$ wget https://virtual-flow.org/sites/virtual-flow
+.org/files/tutorials/docking_files.tar.gz
+[user@machine input-files]$  tar -xvzf docking_files.tar.gz
+smina_rigid_receptor1/config.txt
+receptor/4no7_prot.pdbqt
+qvina02_rigid_receptor1/config.txt
+smina_rigid_receptor1/
+receptor/
+qvina02_rigid_receptor1/
+[user@machine input-files]$
+```
+
+# Preparing the Tools Folder
+
+* Prepare the tools folder
+
+```
+[user@machine input-files]$ cd ../tools/
+```
+
+* Edit the file _tools/templates/all.ctrl_
+  * _batchsystem_: The resource manager which is used by your cluster.
+  * _partition_: The partition queue to be used for running the jobs of this workflow/tutorial.
+  * _timelimit_: Each partition/queue has normally a time-limit, therefore make sure you don't exceed it.
+  
+```
+[user_google_com@fluid-slurm-gcp-1-login-0 ~]$ vi VFVS-develop/tools/templates/all.ctrl
+```
+
+* The _batchsystem_ should already be set to SLURM:
+
+```
+batchsystem=SLURM
+# Possible values: SLURM, TORQUE, PBS, LSF, SGE
+# Settable via range control files: No
+```
+
+* Set _partition_ to match the deployment partition name given above:
+* Change _“shared”_ to _“partition-1”_ or whatever you named your partition in the deployment
+
+```
+partition=partition-1
+# Partitions are also called queues in some batchsystems
+# Settable via range control files: Yes
+```
+
+* Set _timelimit_ (no change):
+
+```
+timelimit=7-00:00:00
+# Format for slurm: dd-hh:mm:ss
+# Format for TORQUE and PBS: hh:mm:ss
+# Format for SGE: hh:mm:ss
+# Format for LSF: hh:mm
+# For all batchsystems: always fill up with two digits per field (used be the job scripts)
+# Settable via range control files: Yes
+```
 
 # Using Entire Nodes
 
