@@ -1,3 +1,15 @@
+# Table of Contents
+
+- [Deploy Slurm Cluster](#deploy-slurm-cluster)
+- [Install VirtualFlow](#install-virtualflow)
+- [Setting Up the Workflow](#setting-up-the-workflow)
+- [Preparing the Docking Input Files](#preparing-the-docking-input-files)
+- [Preparing the tools Folder](#preparing-the-tools-folder)
+- [Using Entire Nodes](#using-entire-nodes)
+- [Workflow Settings](#workflow-settings)
+- [Docking Scenario Settings](#docking-scenario-settings)
+- [Prepare the Job File](#prepare-the-job-file)
+
 # Deploy Slurm Cluster
 
 * Search for SLURM in <a href="https://console.cloud.google.com/marketplace/" target="_blank">GCP Marketplace</a>: 
