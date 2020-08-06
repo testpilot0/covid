@@ -54,6 +54,58 @@ drwxrwxr-x. 6 user_google_com user_google_com      173 Apr 23 14:50 VFVS-develop
 
 # Setting Up the Workflow
 
+* VirtualFlow Virtual Screening <a href="https://docs.virtual-flow.org/tutorials/-LdE94b2AVfBFT72zK-v/tutorial-2-vfvs-scratch/introduction" target="_blank">tutorial<a/>
+* The target structure in this tutorial is human glucokinase (GK)
+ 
+The files in this tutorial come with two pre-configured docking scenarios:
+
+1. <a href="https://academic.oup.com/bioinformatics/article/31/13/2214/195750" target="_blank">QuickVina 2</a> with exhaustiveness set to 8
+1. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0155183" target="_blank">Smina Vinardo</a> with exhaustiveness set to 4
+
+The REAL database of Enamine contains over 1.4 billion commercially available on-demand molecules.
+
+* <a href="https://virtual-flow.org/real-library" target="_blank">https://virtual-flow.org/real-library</a>
+
+![REAL Library: REAL database of Enamine](images/image-04.png)
+
+* Set Molecular Weight: 250 - 300
+* Set Partition Coefficient: 2.3-3
+* Set Topological Polar Surface Area: 60-80
+* Set Hydrogen Bond Acceptors: 3-5
+* Set Hydrogen Bond Donors: 2-3
+* Set Rotatable Bonds: 0-10
+
+* Download method for tranches: “wget”
+* Click “download” → tranches.sh
+
+* Collection-length file
+* Click “download” → collections.txt
+
+SSH into SLURM Login Node
+T![OD: Add screenshot.]()
+
+Upload files to SLURM Login Node
+* tranches.sh
+* collections.txt
+
+![Upload files to SLURM Login Node](images/image-05.png)
+
+Replace the file tools/templates/todo.all with the file collections.txt
+
+```
+[user@machine ~]$ cp collections.txt VFVS-develop/tools/templates/todo.all
+```
+
+* Move the file tranches.sh into VFVS_GK/input-files/ligand-library
+* Change to that directory
+* Source the tranches file
+
+```
+[user@machine ~]$ mv tranches.sh VFVS-develop/input-files/ligand-library/
+[user@machine ~]$ cd VFVS-develop/input-files/ligand-library/
+[user@machine ligand-library]$ source tranches.sh 
+```
+
 # Preparing the Docking Input Files
 
 # Preparing the tools Folder
