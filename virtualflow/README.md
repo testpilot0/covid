@@ -273,7 +273,7 @@ The templates were copied.
  Adding User(s)
   user_domain_com
  Associations =
-  U = christoph A = default    C = fluid-slur
+  U = user_domain_com A = default    C = fluid-slur
  Non Default Settings
 [root@fluid-slurm-gcp-1-login-0 tools]# exit
 exit
