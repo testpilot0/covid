@@ -11,7 +11,7 @@
 - [Prepare the Job File](#prepare-the-job-file)
 - [Prepare the Workflow and Output-Files Folders](#prepare-the-workflow-and-output-files-folders)
 - [Starting the Workflow](#starting-the-workflow)
-- [Watch the Workflow Run](#Watch-the-workflow-run)
+- [Watch the Workflow Run](#watch-the-workflow-run)
 
 
 # Deploy Slurm Cluster
@@ -185,14 +185,208 @@ timelimit=7-00:00:00
 
 # Using Entire Nodes
 
+* Set the number of nodes which should be used per job, and number of cpus per node.  It was set to 10 x n1-standard-8 in the deployment above.
+
+```
+steps_per_job=10
+# Not (yet) available for LSF and SGE (is always set to 1)
+# Should not be changed during runtime, and be the same for all joblines
+# Settable via range control files: Yes
+
+cpus_per_step=8
+# Sets the slurm cpus-per-task variable (task = step) in SLURM
+# In LSF this corresponds to the number of slots per node
+# Should not be changed during runtime, and be the same for all joblines
+# Not yet available for SGE (always set to 1)
+# Settable via range control files: Yes
+
+queues_per_step=8  ← Same as ”cpus_per_step”
+# Sets the number of queues/processes per step
+# Should not be changed during runtime, and be the same for all joblines
+# Not yet available for SGE (always set to 1)
+# Settable via range control files: Yes
+```
+
 # Workflow Settings
+
+* Set ```ligands_todo_per_queue``` and ```ligands_per_refilling_step```:
+
+```
+ligands_todo_per_queue=1000
+ligands_per_refilling_step=1000
+```
+
+* Enable full logging when trying to get a workflow working:
+
+```
+verbosity_logfiles=debug
+store_queue_log_files=all_uncompressed
+```
 
 # Docking Scenario Settings
 
+* Configure the docking scenario settings:
+
+```
+docking_scenario_names=qvina02_rigid_receptor1:smina_rigid_receptor1
+docking_scenario_programs=qvina02:smina_rigid
+docking_scenario_replicas=1:1
+docking_scenrio_inputfolders=../input-files/qvina02_rigid_receptor1:../input-files/smina_rigid_receptor1
+```
+
 # Prepare the Job File
 
-# Prepare the Workflow and Output-Files Folders
+* Job file is in tools/templates.
+* Should not need to be edited.
+
+```
+[user@machine ~]$ ls VFVS-develop/tools/templates/template1.slurm.sh
+VFVS-develop/tools/templates/template1.slurm.sh
+```
+
+# Prepare the ```Workflow``` and ```output-files``` Folders
+
+```
+[user@machine ~]$ cd VFVS-develop/tools/
+[user@machine tools]$ ./vf_prepare_folders.sh
+
+Do you really wish prepare/reset the output-files folder? y
+
+ * Preparing the output-files folder...
+
+Do you really wish to prepare/reset the workflow folder? y
+
+ * Preparing the workflow folder...
+
+The templates were copied.
+
+[user@fluid-slurm-gcp-1-login-0 tools]$ 
+```
 
 # Starting the Workflow
 
+* Add your login as a user of the slurm cluster
+
+```
+[user_domain_com@fluid-slurm-gcp-1-login-0 tools]$ sudo su
+[root@fluid-slurm-gcp-1-login-0 tools]# cluster-services add user user_domain_com
+ Adding User(s)
+  user_domain_com
+ Associations =
+  U = christoph A = default    C = fluid-slur
+ Non Default Settings
+[root@fluid-slurm-gcp-1-login-0 tools]# exit
+exit
+[user_domain_com@fluid-slurm-gcp-1-login-0 tools]$
+```
+
+* Start the workflow:
+
+```
+[user_domain_com@fluid-slurm-gcp-1-login-0 tools]$ ./vf_start_jobline.sh 1 10 templates/template1.slurm.sh submit 1
+
+
+::  ::  ::  ::::. :::::: ::  ::  .::::.  ::      :::::  ::    .::::. ::      ::
+::  ::  ::  :: ::   ::   ::  ::  ::  ::  ::      ::     ::    ::  :: ::  ::  ::
+ ::::   ::  :::.    ::   ::  ::  ::::::  ::      :::::  ::    ::  ::  ::::::::
+  ::    ::  :: ::   ::    ::::   ::  ::  ::::    ::     ::::: '::::'   ::  ::
+
+
+
+Syncing the jobfile of jobline 1 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 2 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 3 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 4 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 5 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 6 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 7 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 8 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 9 with the controlfile file ../../workflow/control/all.ctrl.
+Syncing the jobfile of jobline 10 with the controlfile file ../../workflow/control/all.ctrl.
+
+Submitted batch job 2
+The job for jobline 1 has been submitted at Fri Jun  5 19:00:49 UTC 2020.
+
+Submitted batch job 3
+The job for jobline 2 has been submitted at Fri Jun  5 19:00:50 UTC 2020.
+
+Submitted batch job 4
+The job for jobline 3 has been submitted at Fri Jun  5 19:00:51 UTC 2020.
+
+Submitted batch job 5
+The job for jobline 4 has been submitted at Fri Jun  5 19:00:52 UTC 2020.
+
+Submitted batch job 6
+The job for jobline 5 has been submitted at Fri Jun  5 19:00:53 UTC 2020.
+
+Submitted batch job 7
+The job for jobline 6 has been submitted at Fri Jun  5 19:00:54 UTC 2020.
+
+Submitted batch job 8
+The job for jobline 7 has been submitted at Fri Jun  5 19:00:55 UTC 2020.
+
+Submitted batch job 9
+The job for jobline 8 has been submitted at Fri Jun  5 19:00:56 UTC 2020.
+
+Submitted batch job 10
+The job for jobline 9 has been submitted at Fri Jun  5 19:00:57 UTC 2020.
+
+Submitted batch job 11
+The job for jobline 10 has been submitted at Fri Jun  5 19:00:58 UTC 2020.
+
+[user_domain_com@fluid-slurm-gcp-1-login-0 tools]$
+```
+
 # Watch the Workflow Run
+
+```
+[user_domain_com@fluid-slurm-gcp-1-login-0 tools]$ cd /home/user_domain_com/VFVS-develop/tools/; watch ./vf_report.sh -c workflow -v 2
+
+::  ::  ::  ::::. :::::: ::  ::  .::::.  ::      :::::  ::    .::::. ::      ::
+::  ::  ::  :: ::   ::   ::  ::  ::  ::  ::      ::     ::    ::  :: ::  ::  ::
+ ::::   ::  :::.    ::   ::  ::  ::::::  ::      :::::  ::    ::  ::  ::::::::
+  ::    ::  :: ::   ::    ::::   ::  ::  ::::    ::     ::::: '::::'   ::  ::
+
+                                  Fri Jun  5 19:03:39 UTC 2020                                       
+
+                                         Workflow Status                                        
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                             Joblines    
+................................................................................................
+
+ Number of jobfiles in the workflow/jobfiles/main folder: 10
+ Number of joblines in the batch system: 10
+ Number of joblines in the batch system currently running: 0
+  * Number of joblines in queue "partition" currently running: 0
+ Number of joblines in the batch system currently not running: 10
+  * Number of joblines in queue "partition" currently not running: 10
+ Number of cores/slots currently used by the workflow: 0
+
+                                            Collections    
+................................................................................................
+
+ Total number of ligand collections: 93
+ Number of ligand collections completed: 0
+ Number of ligand collections in state "processing": 0
+ Number of ligand collections not yet started: 93
+
+                                 Ligands (in completed collections)   
+................................................................................................
+
+ Total number of ligands: 101724
+ Number of ligands started: 0
+ Number of ligands successfully completed: 0
+ Number of ligands failed: 0
+
+                                Dockings (in completed collections)   
+................................................................................................
+
+ Docking runs per ligand: 2
+ Number of dockings started: 0
+ Number of dockings successfully completed: 0
+ Number of dockings failed: 0
+
+[user_domain_com@fluid-slurm-gcp-1-login-0 tools]$ 
+
+Check Docking results (run this command from tutorial): ./vf_report.sh -c vs -d qvina02_rigid_receptor1 -n 10
+```
